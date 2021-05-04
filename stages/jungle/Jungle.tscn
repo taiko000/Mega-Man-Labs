@@ -1,93 +1,34 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://stages/stage.gd" type="Script" id=1]
 [ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=2]
-[ext_resource path="res://stages/jungle/textures/mm5_napalm_tiles.png" type="Texture" id=3]
-
-[sub_resource type="TileSet" id=1]
-0/name = "mm5_napalm_tiles.png 0"
-0/texture = ExtResource( 3 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 151, 145, 0, 0 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-1/name = "blue_block"
-1/texture = ExtResource( 3 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 137, 154, 16, 16 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "cone"
-2/texture = ExtResource( 3 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 103, 137, 16, 50 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-3/name = "blueBlockLarge"
-3/texture = ExtResource( 3 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 120, 171, 33, 33 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
-3/z_index = 0
-4/name = "rocks"
-4/texture = ExtResource( 3 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 1, 154, 33, 50 )
-4/tile_mode = 2
-4/autotile/icon_coordinate = Vector2( 0, 0 )
-4/autotile/tile_size = Vector2( 16, 16 )
-4/autotile/spacing = 1
-4/autotile/occluder_map = [  ]
-4/autotile/navpoly_map = [  ]
-4/autotile/priority_map = [  ]
-4/autotile/z_index_map = [  ]
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape_one_way = false
-4/shape_one_way_margin = 0.0
-4/shapes = [  ]
-4/z_index = 0
+[ext_resource path="res://stages/jungle/jungle_tile_set.tres" type="TileSet" id=3]
+[ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/enemies/metall/EnemyMetall.tscn" type="PackedScene" id=13]
 
 [node name="Jungle" type="Node"]
 pause_mode = 1
 script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
 format = 1
+tile_data = PoolIntArray( -262133, 4, 1, -262132, 4, 1, -262131, 4, 1, -262129, 4, 1, -262128, 4, 1, -262127, 3, 0, -196608, 2, 0, -196607, 2, 0, -196606, 2, 0, -196605, 2, 0, -196604, 2, 0, -196603, 2, 0, -196602, 2, 0, -196601, 2, 0, -196600, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 2, 0, -196596, 2, 0, -196595, 2, 0, -196594, 2, 0, -196593, 3, 0, -131064, 4, 65536, -131063, 4, 131073, -131062, 4, 65536, -131055, 3, 0, -131053, 4, 65537, -131052, 4, 65537, -131051, 4, 65537, -131050, 4, 65537, -131049, 4, 65537, -131048, 4, 65537, -131047, 4, 65537, -131046, 4, 65537, -131045, 4, 65537, -131044, 4, 65537, -131043, 4, 65537, -131042, 4, 65537, -131041, 4, 65537, -131040, 4, 65537, -131039, 4, 65537, -131038, 4, 65537, -131037, 4, 65537, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, 0, 4, 0, 1, 4, 1, 2, 4, 1, 3, 4, 1, 4, 4, 0, 5, 4, 1, 6, 4, 1, 7, 4, 0, 8, 4, 1, 9, 4, 0, 10, 4, 1, 11, 4, 0, 12, 4, 1, 13, 4, 1, 14, 4, 0, 15, 4, 1, 16, 4, 1, 17, 4, 1, 18, 4, 1, 19, 4, 1, 20, 4, 1, 21, 4, 1, 22, 4, 1, 23, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 34, 4, 0, 35, 4, 0, 36, 4, 0, 65541, 4, 131073, 65542, 4, 131072, 65543, 4, 131072, 65549, 4, 131073, 65550, 4, 131073 )
 script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 25.4843, -37.2528 )
+
+[node name="PlayerCamera" parent="." instance=ExtResource( 4 )]
+player_target_node = NodePath("../Player")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyMetall2" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 438.071, -38.8491 )
+
+[node name="EnemyMetall3" parent="Enemies" instance=ExtResource( 13 )]
+modulate = Color( 0.0784314, 0.729412, 0.0862745, 1 )
+position = Vector2( 208.765, -6.72107 )

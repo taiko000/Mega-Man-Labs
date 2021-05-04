@@ -7,7 +7,7 @@
 [ext_resource path="res://characters/enemies/metall/idle.gd" type="Script" id=5]
 [ext_resource path="res://characters/enemies/metall/trigger_area.gd" type="Script" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=7]
 resource_local_to_scene = true
 extents = Vector2( 9, 5 )
 
@@ -65,7 +65,7 @@ tracks/0/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=6]
 radius = 80.0
 
 [node name="EnemyMetall" instance=ExtResource( 1 )]
@@ -73,7 +73,7 @@ enemy_name = "Metall"
 hit_points_max = 1
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
@@ -108,7 +108,7 @@ collision_mask = 2
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [connection signal="animation_finished" from="EnemyAnimations" to="StateMachine" method="_on_animation_finished"]
 [connection signal="timeout" from="Timer" to="StateMachine/Idle" method="on_Timer_timeout"]
