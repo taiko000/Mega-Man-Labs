@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://stages/stage.gd" type="Script" id=1]
 [ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=2]
 [ext_resource path="res://stages/jungle/jungle_tile_set.tres" type="TileSet" id=3]
 [ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://stages/assets/CameraTransition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=7]
+[ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=11]
 [ext_resource path="res://characters/enemies/metall/EnemyMetall.tscn" type="PackedScene" id=13]
 
 [node name="Jungle" type="Node"]
@@ -15,14 +21,36 @@ script = ExtResource( 1 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -262133, 4, 1, -262132, 4, 1, -262131, 4, 1, -262129, 4, 1, -262128, 4, 1, -262127, 3, 0, -196608, 2, 0, -196607, 2, 0, -196606, 2, 0, -196605, 2, 0, -196604, 2, 0, -196603, 2, 0, -196602, 2, 0, -196601, 2, 0, -196600, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 2, 0, -196596, 2, 0, -196595, 2, 0, -196594, 2, 0, -196593, 3, 0, -131064, 4, 65536, -131063, 4, 131073, -131062, 4, 65536, -131055, 3, 0, -131053, 4, 65537, -131052, 4, 65537, -131051, 4, 65537, -131050, 4, 65537, -131049, 4, 65537, -131048, 4, 65537, -131047, 4, 65537, -131046, 4, 65537, -131045, 4, 65537, -131044, 4, 65537, -131043, 4, 65537, -131042, 4, 65537, -131041, 4, 65537, -131040, 4, 65537, -131039, 4, 65537, -131038, 4, 65537, -131037, 4, 65537, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, 0, 4, 0, 1, 4, 1, 2, 4, 1, 3, 4, 1, 4, 4, 0, 5, 4, 1, 6, 4, 1, 7, 4, 0, 8, 4, 1, 9, 4, 0, 10, 4, 1, 11, 4, 0, 12, 4, 1, 13, 4, 1, 14, 4, 0, 15, 4, 1, 16, 4, 1, 17, 4, 1, 18, 4, 1, 19, 4, 1, 20, 4, 1, 21, 4, 1, 22, 4, 1, 23, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 34, 4, 0, 35, 4, 0, 36, 4, 0, 65541, 4, 131073, 65542, 4, 131072, 65543, 4, 131072, 65549, 4, 131073, 65550, 4, 131073 )
+tile_data = PoolIntArray( -327641, 3, 0, -327639, 3, 0, -327637, 2, 0, -327636, 2, 0, -327635, 2, 0, -327634, 2, 0, -327633, 2, 0, -327632, 2, 0, -327631, 2, 0, -327630, 2, 0, -327629, 2, 0, -327628, 2, 0, -327627, 2, 0, -262133, 4, 1, -262132, 4, 1, -262131, 4, 1, -262129, 4, 1, -262128, 4, 1, -262127, 3, 0, -262087, 3, 0, -262085, 3, 0, -196608, 2, 0, -196607, 2, 0, -196606, 2, 0, -196605, 2, 0, -196604, 2, 0, -196603, 2, 0, -196602, 2, 0, -196601, 2, 0, -196600, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 2, 0, -196596, 2, 0, -196595, 2, 0, -196594, 2, 0, -196593, 3, 0, -131064, 4, 65536, -131063, 4, 131073, -131062, 4, 65536, -131055, 3, 0, -131053, 4, 65537, -131052, 4, 65537, -131051, 4, 65537, -131050, 4, 65537, -131049, 4, 65537, -131048, 4, 65537, -131047, 4, 65537, -131046, 4, 65537, -131045, 4, 65537, -131044, 4, 65537, -131043, 4, 65537, -131042, 4, 65537, -131041, 4, 65537, -131040, 4, 65537, -131039, 4, 65537, -131038, 4, 65537, -131037, 4, 65537, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, 0, 4, 0, 1, 4, 1, 2, 4, 1, 3, 4, 1, 4, 4, 0, 5, 4, 1, 6, 4, 1, 7, 4, 0, 8, 4, 1, 9, 4, 0, 10, 4, 1, 11, 4, 0, 12, 4, 1, 13, 4, 1, 14, 4, 0, 15, 4, 1, 16, 4, 1, 17, 4, 1, 18, 4, 1, 19, 4, 1, 20, 4, 1, 21, 4, 1, 22, 4, 1, 23, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 34, 4, 0, 35, 4, 0, 36, 4, 0, 37, 4, 0, 38, 4, 0, 39, 4, 0, 40, 4, 0, 41, 4, 0, 42, 4, 0, 43, 4, 0, 44, 4, 0, 45, 4, 0, 46, 4, 0, 47, 4, 0, 48, 4, 0, 49, 4, 0, 50, 4, 0, 51, 4, 0, 52, 4, 0, 53, 4, 0, 54, 4, 0, 55, 4, 0, 56, 4, 0, 57, 4, 0, 58, 4, 0, 59, 4, 0, 60, 4, 0, 61, 4, 0, 62, 4, 0, 63, 4, 0, 64, 4, 0, 65, 4, 0, 66, 4, 0, 67, 4, 0, 68, 4, 0, 69, 4, 0, 70, 4, 0, 71, 4, 0, 65541, 4, 131073, 65542, 4, 131072, 65543, 4, 131072, 65549, 4, 131073, 65550, 4, 131073 )
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 25.4843, -37.2528 )
+position = Vector2( 80, -144 )
 
 [node name="PlayerCamera" parent="." instance=ExtResource( 4 )]
 player_target_node = NodePath("../Player")
+
+[node name="CameraTransitions" type="Node2D" parent="."]
+
+[node name="CameraTransition01" parent="CameraTransitions" instance=ExtResource( 6 )]
+position = Vector2( 1148, -100 )
+base_size = Vector2( 384, 240 )
+
+[node name="CameraTransition02" parent="CameraTransitions" instance=ExtResource( 6 )]
+position = Vector2( 572, 20 )
+is_rotated = true
+size = 3
+base_size = Vector2( 384, 240 )
+
+[node name="CameraTransition03" parent="CameraTransitions" instance=ExtResource( 6 )]
+position = Vector2( 572, -224 )
+is_rotated = true
+size = 3
+base_size = Vector2( 384, 240 )
+
+[node name="CameraTransition04" parent="CameraTransitions" instance=ExtResource( 6 )]
+position = Vector2( 0, -104 )
+base_size = Vector2( 384, 240 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -32,3 +60,36 @@ position = Vector2( 438.071, -38.8491 )
 [node name="EnemyMetall3" parent="Enemies" instance=ExtResource( 13 )]
 modulate = Color( 0.0784314, 0.729412, 0.0862745, 1 )
 position = Vector2( 208.765, -6.72107 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeEnergyBar" parent="GUI/MarginContainer" instance=ExtResource( 9 )]
+visible = false
+margin_right = 345.0
+margin_bottom = 216.0
+
+[node name="WeaponEnergyBar" parent="GUI/MarginContainer/LifeEnergyBar" instance=ExtResource( 9 )]
+visible = false
+margin_left = 12.0
+color = Color( 0.827451, 0.580392, 0.905882, 1 )
+
+[node name="Ready" parent="GUI" instance=ExtResource( 10 )]
+visible = false
+
+[node name="Pause" parent="GUI" instance=ExtResource( 11 )]
+visible = false
+
+[node name="FadeEffects" parent="GUI" instance=ExtResource( 8 )]
+visible = false
+
+[node name="GameOver" parent="GUI" instance=ExtResource( 7 )]
+visible = false
